@@ -9,3 +9,61 @@ description: # This is a description of the page. You can modify it in '_pages/c
 #toc:
 #  sidebar: left
 ---
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      {{ page.title }}
+      {% if page.cv_pdf %}
+        <a
+          {% if page.cv_pdf contains '://' %}
+            href="{{ page.cv_pdf }}"
+          {% else %}
+            href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}"
+          {% endif %}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="float-right"
+        >
+          <i class="fa-solid fa-file-pdf"></i>
+        </a>
+      {% endif %}
+    </h1>
+    {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <article>
+    <div class="cv">
+      <!-- PDF 미리보기 섹션 -->
+      <div class="card mt-3 p-3">
+        <h3 class="card-title font-weight-medium">CV Preview</h3>
+        <div class="text-center">
+          <iframe 
+            src="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}#toolbar=0&navpanes=0&scrollbar=0" 
+            width="100%" 
+            height="800px" 
+            style="border: 1px solid #ddd; border-radius: 5px;"
+            title="CV Preview"
+          >
+            <p>Your browser does not support PDFs. 
+              <a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}" target="_blank">
+                Download the PDF instead
+              </a>
+            </p>
+          </iframe>
+        </div>
+        <div class="text-center mt-3">
+          <a 
+            href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}" 
+            target="_blank" 
+            class="btn btn-primary"
+          >
+            <i class="fa-solid fa-download"></i> Download PDF
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
