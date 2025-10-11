@@ -171,7 +171,7 @@ kramdown:
       start_line: 1
 
 # Includes & excludes
-include: ["_pages", "_scripts"]
+include: ["_pages", "_scripts", "assets/pdf", "assets/img", "_bibliography"]
 exclude:
   - bin/
   - CONTRIBUTING.md
@@ -642,3 +642,4 @@ jsonresume:
   - languages
   - interests
   - references
+
