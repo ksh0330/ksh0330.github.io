@@ -35,19 +35,19 @@ description: # This is a description of the page. You can modify it in '_pages/c
     <div class="card mt-3 p-3">
       <h3 class="card-title font-weight-medium">CV Preview</h3>
       <div class="text-center">
-        <iframe 
-          src="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}#toolbar=0&navpanes=0&scrollbar=0" 
+        <object 
+          data="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}#toolbar=0&navpanes=0&scrollbar=0" 
+          type="application/pdf" 
           width="100%" 
-          height="800px" 
+          height="800px"
           style="border: 1px solid #ddd; border-radius: 5px;"
-          title="CV Preview"
         >
           <p>Your browser does not support PDFs. 
             <a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}" target="_blank">
               Download the PDF instead
             </a>
           </p>
-        </iframe>
+        </object>
       </div>
     </div>
   </article>
