@@ -22,13 +22,23 @@ announcements:
   limit: 3 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
-  enabled: true
+  enabled: false
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I'm an undergraduate student majoring in Electronics, Information & Communications Engineering.  
+My research lies at the convergence of **real-time vision**, **efficient computation**, and **AI + communications**.  
+I explore how systems can dynamically allocate computation based on uncertainty and information value.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+In my undergraduate research, I developed a risk classification model using lane-specific speed estimation (YOLOv8 + MLP).  
+That work resulted in a first-author publication.  
+During my internship at ETRI, I built an EO/IR drone detection system combining 5G communication and optimized inference.  
+I also participated in AIoT and AI + communications integration projects on campus, working with real systems and datasets.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Moving forward, I plan to design **uncertainty-aware selective inference** models.  
+I will validate latency–accuracy trade-offs on real testbed deployments rather than only simulations.  
+I intend to integrate perception and decision-making into real-time pipelines.  
+Ultimately, I aim to build AI systems that decide computation based on information value, fusing neural learning and symbolic reasoning to achieve robust, interpretable, and efficient intelligence.
+
+---
