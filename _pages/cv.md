@@ -35,10 +35,7 @@ description: # This is a description of the page. You can modify it in '_pages/c
 </header>
 
 <article>
-<div class="cv">
- <!-- PDF 미리보기 섹션 -->
- <div class="card mt-3 p-3">
-        <h3 class="card-title font-weight-medium">CV Preview</h3>
+ <div class="cv">
    <div class="text-center">
      <iframe 
        src="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}#toolbar=0&navpanes=0&scrollbar=0" 
@@ -55,5 +52,4 @@ description: # This is a description of the page. You can modify it in '_pages/c
      </iframe>
    </div>
  </div>
-</div>
 </article>
