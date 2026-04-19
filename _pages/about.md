@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: Undergraduate Student.
+subtitle: 
 
 profile:
   align: right
@@ -27,16 +27,17 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I'm an undergraduate student majoring in Electronics, Information & Communications Engineering.  
-My research lies at the intersection of **Deep Learning**, **Computer Vision**, and **Efficient Perception–Decision Systems**. 
-I aim to build AI models that dynamically adapt computation based on **uncertainty** and **information value**, achieving real-time and reliable understanding of complex environments.  
+I am an AI engineer with a background in Electronics, Information & Communications Engineering.
 
-Through undergraduate research, I developed a **YOLOv8 + MLP–based risk classification model** using lane-specific speed estimation, which was published as first author.  
-At **ETRI**, I worked on an **EO/IR drone detection system** integrated with 5G communication and improved inference efficiency through optimized processing.  
-These experiences deepened my interest in building **robust and adaptive perception–decision pipelines** applicable to real-world testbeds.  
+My work focuses on building practical AI systems using **deep learning** and **computer vision**. I am particularly interested in designing efficient perception–decision pipelines that operate reliably under real-world constraints, with a strong emphasis on balancing accuracy and latency.
 
-My long-term goal is to design **selective and uncertainty-aware AI systems** that allocate computation only where it matters.  
-I seek to integrate **neural and symbolic reasoning** for interpretable, efficient decision-making in unstructured environments.  
-Ultimately, I aim to realize **real-world deployable AI systems** that learn to perceive, reason, and decide efficiently.  
+During my undergraduate research, I developed a YOLOv8 + MLP–based risk classification system using lane-specific speed estimation, achieving real-time performance and publishing the work as a first author.
+At ETRI, I worked on a 5G-based EO/IR drone detection system, where I designed data preprocessing and inference pipelines to improve both detection performance and system efficiency.
+
+These experiences shaped my approach to AI engineering: focusing not only on model performance, but also on building end-to-end systems that function robustly in real environments.
+
+I am interested in developing adaptive AI systems that allocate computation efficiently based on context and uncertainty, enabling scalable and reliable decision-making.
+
+My goal is to build deployable AI systems that integrate perception, optimization, and decision-making into a unified pipeline.
 
 ---
