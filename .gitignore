@@ -14,7 +14,6 @@ vendor
 
 # Template files to ignore
 _posts/
-_projects/
 _books/
 _news/
 _pages/about_einstein.md
