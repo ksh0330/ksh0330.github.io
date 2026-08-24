@@ -405,8 +405,14 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-my-personal-website-has-just-been-launched",
-          title: 'My personal website has just been launched!',
+            },},{id: "news-received-the-best-paper-presentation-award-at-iemek-2024-for-the-eo-ir-drone-object-detection-work",
+          title: 'Received the Best Paper Presentation Award at IEMEK 2024 for the EO/IR drone...',
+          description: "",
+          section: "News",},{id: "news-published-a-first-author-journal-paper-on-vehicle-speed-estimation-and-accident-risk-classification",
+          title: 'Published a first-author journal paper on vehicle speed estimation and accident-risk classification.',
+          description: "",
+          section: "News",},{id: "news-grit-edu-lms-cms-launched-for-academy-operations",
+          title: 'GRIT Edu LMS/CMS launched for academy operations.',
           description: "",
           section: "News",},{id: "projects-real-time-eo-ir-drone-object-detection",
           title: 'Real-Time EO/IR Drone Object Detection',
