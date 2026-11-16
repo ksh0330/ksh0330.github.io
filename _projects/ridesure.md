@@ -22,7 +22,9 @@ RideSure uses a historical in-vehicle load snapshot (2025-11-08). It is **not** 
 
 ## My Role
 
-As team lead during the contest, I handled problem definition and service planning, public-data relationship design, the knowledge-graph structure, role division, the direction for using a local SLM, discussions with industry mentors, result validation, and the final presentation.
+As team lead during the contest, I handled problem definition and service planning, public-data relationship design, the knowledge-graph structure, role division, the direction for using a local SLM, discussions with industry mentors, result validation, and the final presentation. To check the guidance against reality, I rode the target buses at specific times and compared what the service said with actual conditions on board.
+
+The team received the **Special Award** at the challenge (November 2025).
 
 ## What It Does
 
