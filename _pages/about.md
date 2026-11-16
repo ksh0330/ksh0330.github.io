@@ -50,9 +50,9 @@ My background is in Electronics, Information & Communications Engineering, with 
 
 My experience includes **deep learning-based perception**, model inference, and system integration under real-world constraints, particularly where accuracy and latency need to be considered together.
 
-During my undergraduate research, I developed a YOLOv8 + MLP-based accident risk classification system using lane-specific vehicle speed estimation, achieving **89% accuracy** and **5 ms inference**. The work was published as a first-author journal paper.
+During my undergraduate research, I developed a YOLOv8 + MLP-based accident risk classification system using lane-specific vehicle speed estimation, achieving **89% risk-classification accuracy** on model-intersection test videos with **5 ms** classifier inference, and validated the speed estimation on real roads. The work was published as a first-author journal paper.
 
-At ETRI, I worked on a **5G-based EO/IR drone object detection system**, covering image preprocessing, model inference, optimization, and system validation. The system achieved **0.6 s end-to-end latency** and improved detection accuracy through EO/IR fusion.
+At ETRI, I worked on a **5G-based EO/IR drone object detection system**, covering image preprocessing, model inference, optimization, and system validation. In the test environment, the flow from video input to detection visualization took about **0.6 s**, and the system improved detection accuracy through EO/IR fusion.
 
 These experiences shaped my interest in building practical AI systems that connect **data processing, models, and software** for real-world applications.
 

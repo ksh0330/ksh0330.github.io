@@ -48,9 +48,10 @@ This work was tested in a simulated intersection and road-test environment. It w
 
 ## Results
 
-- **89% accident-risk classification accuracy** with the YOLOv8 and MLP method
-- **5 ms inference time** for the MLP classifier
-- First-author journal publication
+- **89% accident-risk classification accuracy** with the YOLOv8 and MLP method on the model-intersection test videos (GRU baseline: 64%)
+- **5 ms inference time** for the MLP classifier, about 224x faster than the video-classification baseline (1,120 ms)
+- Speed estimation validated separately on real roads, with a maximum error of **5.66 km/h**
+- First-author journal publication (2025)
 - **Hanium ICT Contest Finalist**, **Capstone Design Grand Prize**, and **AIoT Service Design Grand Prize** as team results
 
 The paper also compared the method with GRU and InceptionV3 baselines. The selected MLP approach provided the best balance of accuracy and inference time in the experiment.
