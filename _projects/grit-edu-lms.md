@@ -71,7 +71,7 @@ After a user inquiry, I found that students on the same Wi-Fi network were hitti
 - Hiding a menu does not block access, so I verified role-based read and write permissions in the Firestore Security Rules
 - Wrote an operations guide so administrators can update information without code changes
 
-{% include figure.liquid path="assets/img/projects/gritedu-popup-cms.jpg" title="GRIT Edu popup management" alt="Popup management screen listing home-screen popups with status, position, type, order, and image" caption="Staff manage home-screen popups (image, text, position, order, and visibility) without code changes." max-width="820px" class="img-fluid rounded z-depth-1 d-block mx-auto" %}
+{% include figure.liquid path="assets/img/projects/gritedu-site-cms.jpg" title="GRIT Edu site management CMS" alt="Site management screen with tabs for academy information, instructors, D-Day, and footer, and fields for the banner image and greeting text" caption="Site management CMS. Staff edit the academy introduction, instructors, D-Day, and footer without code changes." max-width="820px" class="img-fluid rounded z-depth-1 d-block mx-auto" %}
 
 ## Results
 
