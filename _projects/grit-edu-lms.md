@@ -2,7 +2,7 @@
 layout: page
 title: GRIT Edu LMS/CMS
 description: An academy website and management system for online courses, offline classes, users, and public content.
-img: assets/img/projects/LMSmain.png
+img: assets/img/projects/gritedu-admin-dashboard.jpg
 importance: 3
 keywords: [JavaScript, Firebase, Firestore, Cloudflare]
 permalink: /projects/grit-edu-lms/
@@ -18,9 +18,9 @@ I organized the requirements and built the public website and management feature
 
 Because academy staff needed to update information without editing source code, content management was included alongside the course, class, and account features.
 
-I built the service under a paid contract in June–July 2026 and have continued to operate and improve it since. As of November 2026, **202 students** and **21 instructors** are registered.
+I built the service under a paid contract in June–July 2026 and have continued to operate and improve it since. As of November 16, 2026, the service has **239 students** and **21 instructors** registered, **13 published online courses**, and **72 offline classes** in operation.
 
-{% include figure.liquid loading="eager" path="assets/img/projects/LMSmain.png" title="GRIT Edu administrator dashboard" alt="Administrator dashboard showing user, instructor, online course, and offline class counts" caption="Administrator dashboard for checking the current service status." max-width="860px" class="img-fluid rounded z-depth-1 d-block mx-auto" %}
+{% include figure.liquid loading="eager" path="assets/img/projects/gritedu-admin-dashboard.jpg" title="GRIT Edu administrator dashboard" alt="Administrator dashboard showing 239 students, 21 instructors, 13 published online courses, 72 offline classes, 15 online enrollments, and 543 class assignments" caption="Administrator dashboard. Status counts are loaded on demand to limit database reads (November 2026)." max-width="860px" class="img-fluid rounded z-depth-1 d-block mx-auto" %}
 
 ## What I Did
 
@@ -35,7 +35,9 @@ The layout and static assets are served by Cloudflare Pages. Firestore stores fr
 
 {% include figure.liquid path="assets/img/projects/gritedu-schedule.png" title="GRIT Edu public timetable" alt="Public timetable page with tabs for middle school and each high-school grade and a list of school-specific classes" caption="Public timetable page on the live site (November 2026)." max-width="820px" class="img-fluid rounded z-depth-1 d-block mx-auto" %}
 
-{% include figure.liquid path="assets/img/projects/LMSmenu.png" title="GRIT Edu administrator menu" alt="Administrator menu for students, instructors, courses, classes, site content, and cleanup" caption="Administrator menu for user, course, class, and site management." max-width="820px" class="img-fluid rounded z-depth-1 d-block mx-auto" %}
+{% include figure.liquid path="assets/img/projects/gritedu-admin-menu.jpg" title="GRIT Edu administrator menu" alt="Administrator menu grouped into account management, course and class management, and site management" caption="Administrator menu for accounts, courses and classes, site content, popups, and scheduled cleanup." max-width="820px" class="img-fluid rounded z-depth-1 d-block mx-auto" %}
+
+{% include figure.liquid path="assets/img/projects/gritedu-offline-classes.jpg" title="GRIT Edu offline class management" alt="Offline class management table with subject, school and grade, instructor, lesson count, student count, and status for each class" caption="Offline class management. Archiving hides a class while keeping its records; permanent deletion removes linked records." max-width="820px" class="img-fluid rounded z-depth-1 d-block mx-auto" %}
 
 ### Balancing Requests and Cost
 
@@ -63,15 +65,17 @@ After a user inquiry, I found that students on the same Wi-Fi network were hitti
 
 - Reworked screens that were hard to use on mobile
 - Checked parent–child account linking and per-student course access
+- Added draft, published, and archived states for online courses and approval-based enrollment, and verified the related Security Rules
 - When a course did not appear, separated display bugs from publish/archive state and permission problems
+- Added installable PWA support and restricted API key use to allowed domains
 - Hiding a menu does not block access, so I verified role-based read and write permissions in the Firestore Security Rules
 - Wrote an operations guide so administrators can update information without code changes
 
-{% include figure.liquid path="assets/img/projects/sitemanagements.png" title="GRIT Edu site management CMS" alt="CMS interface for editing academy information and other public website content" caption="CMS interface for managing public website content." max-width="820px" class="img-fluid rounded z-depth-1 d-block mx-auto" %}
+{% include figure.liquid path="assets/img/projects/gritedu-popup-cms.jpg" title="GRIT Edu popup management" alt="Popup management screen listing home-screen popups with status, position, type, order, and image" caption="Staff manage home-screen popups (image, text, position, order, and visibility) without code changes." max-width="820px" class="img-fluid rounded z-depth-1 d-block mx-auto" %}
 
 ## Results
 
-- Live service with 202 students and 21 instructors registered (November 2026)
+- Live service with 239 students and 21 instructors registered, 13 published online courses, and 72 offline classes (November 2026)
 - Public academy website and role-based management pages are available in the live service
 - Online courses, offline classes, users, and public content can be managed through the administrator screens
 - Build checks and Firestore rules are used before deployment to catch missing assets and access problems
@@ -85,3 +89,4 @@ I learned that a live web service requires attention to database usage and opera
 ## Links
 
 - [Live Website](https://gritedu.kr)
+- [Public Code (GitHub)](https://github.com/ksh0330/gritedu-lms)
