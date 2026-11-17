@@ -70,6 +70,9 @@ ninja.data = [{
           section: "News",},{id: "news-published-a-first-author-journal-paper-on-vehicle-speed-estimation-and-accident-risk-classification",
           title: 'Published a first-author journal paper on vehicle speed estimation and accident-risk classification.',
           description: "",
+          section: "News",},{id: "news-received-the-excellence-award-from-the-dsc-platform-university-for-completing-its-curriculum-with-distinction-and-growing-as-a-regional-talent-in-future-mobility",
+          title: 'Received the Excellence Award from the DSC Platform University for completing its curriculum...',
+          description: "",
           section: "News",},{id: "news-grit-edu-lms-cms-launched-for-academy-operations",
           title: 'GRIT Edu LMS/CMS launched for academy operations.',
           description: "",
@@ -88,11 +91,21 @@ ninja.data = [{
           description: "A transit prototype that judges boarding likelihood from historical bus load data and compares alternative routes.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/ridesure/";
+            },},{id: "projects-teleguiderag-telecom-technology-guide",
+          title: 'TeleGuideRAG — Telecom Technology Guide',
+          description: "A RAG service that explains networking and telecom technologies with cited sources, side-by-side comparisons, and device connection checklists.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/teleguiderag/";
             },},{id: "projects-vitas-vision-ai-traffic-accident-prevention",
           title: 'VITAS — Vision AI Traffic Accident Prevention',
           description: "A vision-based intersection system for vehicle detection, speed estimation, and accident-risk classification.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/vitas/";
+            },},{id: "projects-youtube-live-transcript-stt",
+          title: 'YouTube Live Transcript STT',
+          description: "A Chrome extension that transcribes YouTube live audio in real time with a local Whisper server, even when no captions are available.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/youtube-live-stt/";
             },},{
         id: 'social-email',
         title: 'email',
