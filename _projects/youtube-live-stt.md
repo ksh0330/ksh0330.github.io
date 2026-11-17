@@ -16,7 +16,7 @@ Many YouTube live streams have no captions. This Chrome extension captures the a
 
 Audio never leaves the PC; transcription runs entirely on the local machine.
 
-{% include figure.liquid loading="eager" path="assets/img/projects/youtube-live-stt-overlay.jpg" title="Video overlay" alt="Transcript overlay shown at the bottom of a video player" caption="The latest sentence shown on the video. Position, size, and opacity are adjustable. (Visual QA fixture)" max-width="760px" class="img-fluid rounded z-depth-1 d-block mx-auto" %}
+{% include figure.liquid loading="eager" path="assets/img/projects/youtube-live-stt-overlay.jpg" title="Video overlay" alt="Transcript overlay shown at the bottom of a video player" caption="Roll-up captions on the video: the end of the previous sentence, then the sentence being spoken, in two short lines like YouTube CC. (Visual QA fixture)" max-width="760px" class="img-fluid rounded z-depth-1 d-block mx-auto" %}
 
 ## Pipeline
 
@@ -26,7 +26,7 @@ YouTube tab audio → chrome.tabCapture → offscreen document (16 kHz mono PCM1
 ```
 
 - **Two streaming modes, chosen by device:** on a GPU, *sentence mode* re-transcribes all audio since the last finished sentence every 2 s and commits only words that two consecutive passes agree on (LocalAgreement); on a CPU, *rolling mode* sends 4 s of new audio with the previous 2 s as context and commits text older than 2 s
-- **Sentence-level subtitles:** committed text is grouped into sentences at punctuation, a 0.8 s pause, or 60 characters. The sentence being spoken stays on one line with its still-changing tail faded, and the overlay shows two lines like YouTube CC
+- **Sentence-level subtitles:** committed text is grouped into sentences at punctuation, a 0.8 s pause, or 60 characters. The sentence being spoken stays on one line with its still-changing tail faded. The overlay rolls up two short (about 26-character) lines like YouTube CC, with line lengths balanced so no one-word orphan is left, and SRT/VTT files use the same rule
 - **De-duplication:** text is merged only when it matches and its timestamps fall within about 1 s of the earlier recognition, so real repeated speech is kept
 - **Exports:** TXT, SRT, VTT, and JSON with timestamps mapped from Whisper segments to the video timeline
 
