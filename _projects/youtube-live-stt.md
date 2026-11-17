@@ -28,6 +28,7 @@ YouTube tab audio → chrome.tabCapture → offscreen document (16 kHz mono PCM1
 - **Two streaming modes, chosen by device:** on a GPU, *sentence mode* re-transcribes all audio since the last finished sentence every 2 s and commits only words that two consecutive passes agree on (LocalAgreement); on a CPU, *rolling mode* sends 4 s of new audio with the previous 2 s as context and commits text older than 2 s
 - **Sentence-level subtitles:** committed text is grouped into sentences at punctuation, a 0.8 s pause, or 60 characters. The sentence being spoken stays on one line with its still-changing tail faded. The overlay rolls up two short (about 26-character) lines like YouTube CC, with line lengths balanced so no one-word orphan is left, and SRT/VTT files use the same rule
 - **De-duplication:** text is merged only when it matches and its timestamps fall within about 1 s of the earlier recognition, so real repeated speech is kept
+- **Other languages (v0.4.2):** the speech language is auto-detected and locked once Whisper is at least 80% sure, and non-Korean speech is translated into Korean sentence by sentence with a local NLLB-200 1.3B model (CTranslate2 int8), with the original text kept beside it
 - **Exports:** TXT, SRT, VTT, and JSON with timestamps mapped from Whisper segments to the video timeline
 
 ## Problems I Solved
@@ -38,6 +39,7 @@ YouTube tab audio → chrome.tabCapture → offscreen document (16 kHz mono PCM1
 - **UI slowing down over long sessions:** the panel renders only the latest 500 lines and saves state every 8 s instead of on every segment
 - **The same sentence printed twice (v0.3.1):** when the next window re-recognized the provisional tail, Whisper shifted its timestamps by a few hundred milliseconds or dropped the last word, so de-duplication missed it. I reproduced both cases in tests, matched re-recognitions with a 1 s tolerance and containment checks, and confirmed with a real-model streaming run that the duplicate disappeared while an intentionally repeated sentence was kept. Whisper repetition loops on music or silence are now collapsed as well.
 - **Fragments at window boundaries (v0.4.0):** even without duplicates, fixed windows cut sentences into pieces such as "3." or "할 수 있습니다.", which read worse than YouTube captions. I measured that the GPU made a larger model affordable (0.29 s per window with large-v3-turbo vs. 1.85 s for small on the CPU), and used that headroom for the sentence mode above, so each sentence is recognized with its full context.
+- **Korean subtitles for English and Japanese streams (v0.4.2):** Whisper can only translate into English, so I added a separate local translator and translated whole sentences rather than fragments. Testing it with a real model exposed two bugs: English sentences were split at 60 characters (a limit tuned for Korean) and translated in halves, and a 10 s re-transcription buffer sometimes made Whisper skip the last sentence. Measuring sentence length by display width and trimming the buffer at 6 s fixed both. The translation model loads in the background, and the original text is shown until it is ready.
 
 {% include figure.liquid path="assets/img/projects/youtube-live-stt-sidepanel.jpg" title="Side panel" alt="Chrome side panel showing server status, live delay, search, and the transcript list" caption="The side panel with server status, live delay, search, and the full transcript. (Visual QA fixture with mock data)" max-width="420px" class="img-fluid rounded z-depth-1 d-block mx-auto" %}
 
@@ -68,7 +70,7 @@ CER here is only for comparing settings on the same synthetic clip; it does not 
 
 ## Tech Stack
 
-Chrome Extension (Manifest V3, tabCapture, offscreen, side panel), JavaScript, Python, FastAPI, WebSocket, faster-whisper (CTranslate2)
+Chrome Extension (Manifest V3, tabCapture, offscreen, side panel), JavaScript, Python, FastAPI, WebSocket, faster-whisper (CTranslate2), NLLB-200
 
 ## Links
 
