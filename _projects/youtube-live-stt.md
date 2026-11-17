@@ -45,15 +45,17 @@ YouTube tab audio → chrome.tabCapture → offscreen document (16 kHz mono PCM1
 
 ## Results
 
-**Sentence mode (v0.4.0).** I streamed a 48-second Korean lecture clip with 8 reference sentences through the real server code in real-time order (RTX 5060 Ti, i7-11700):
+**Sentence mode (measured again with v0.4.2).** I streamed a 48-second Korean lecture clip with 8 reference sentences through the real server code in real-time order (RTX 5060 Ti, i7-11700):
 
 | Setting | Committed sentences | Avg. inference | Time to commit after a sentence ends (avg / max) |
 | --- | ---: | ---: | ---: |
-| small · CPU · rolling | 10 | 2,044 ms | 3.2 s / 4.8 s |
-| large-v3-turbo · GPU · rolling | 10 | 278 ms | 4.0 s / 5.9 s |
-| **large-v3-turbo · GPU · sentence** | **8** | 293 ms | **3.0 s** / 6.1 s |
+| small · CPU · rolling | 10 | 2,329 ms | 3.2 s / 4.8 s |
+| large-v3-turbo · GPU · rolling | 10 | 323 ms | 4.0 s / 5.9 s |
+| **large-v3-turbo · GPU · sentence** | **8** | 312 ms | **3.3 s** / 6.1 s |
 
 Rolling mode left boundary fragments; sentence mode returned the same 8 sentences as the reference, e.g. "C 언어의 인트와 롱 자료형, C89와 C99 표준도 비교하겠습니다."
+
+**Translation (v0.4.2).** An 18-second English clip with 4 sentences, with the language on auto-detect, was detected as English and all 4 sentences were translated into Korean on both the CPU and the GPU. Translation adds about 0.4 s per update on the GPU and about 1 s on the CPU, where processing 4 s of audio then takes 3.6 s on average, close to the real-time limit.
 
 **Window setting (v0.3.0).** On a 48-second Korean TTS lecture clip (`small` model, CPU `int8`), I compared four window settings and chose 4 s + 2 s overlap:
 
