@@ -27,7 +27,7 @@ YouTube tab audio → chrome.tabCapture → offscreen document (16 kHz mono PCM1
 
 - **Rolling window:** each 4 s of new audio is sent with the previous 2 s as context, so the transcript updates about every 4 s
 - **Final vs. provisional:** the last ~2 s are shown as provisional and can be corrected by the next window; earlier text is committed
-- **De-duplication:** overlapping text is merged only when the timestamps actually overlap, so real repeated speech is kept
+- **De-duplication:** text is merged only when it matches and its timestamps fall within about 1 s of the earlier recognition, so real repeated speech is kept
 - **Exports:** TXT, SRT, VTT, and JSON with timestamps mapped from Whisper segments to the video timeline
 
 ## Problems I Solved
@@ -36,6 +36,7 @@ YouTube tab audio → chrome.tabCapture → offscreen document (16 kHz mono PCM1
 - **Falling behind in real time:** receiving audio and running inference were split, and the audio queue is capped at 16 s with an oldest-drop policy, so a slow CPU never leaves the transcript minutes behind the stream
 - **Missing CUDA libraries on Windows:** the model runs a short real inference at load time and falls back to CPU `int8` if CUDA libraries fail
 - **UI slowing down over long sessions:** the panel renders only the latest 500 lines and saves state every 8 s instead of on every segment
+- **The same sentence printed twice (v0.3.1):** when the next window re-recognized the provisional tail, Whisper shifted its timestamps by a few hundred milliseconds or dropped the last word, so de-duplication missed it. I reproduced both cases in tests, matched re-recognitions with a 1 s tolerance and containment checks, and confirmed with a real-model streaming run that the duplicate disappeared while an intentionally repeated sentence was kept. Whisper repetition loops on music or silence are now collapsed as well.
 
 {% include figure.liquid path="assets/img/projects/youtube-live-stt-sidepanel.jpg" title="Side panel" alt="Chrome side panel showing server status, live delay, search, and the transcript list" caption="The side panel with server status, live delay, search, and the full transcript. (Visual QA fixture with mock data)" max-width="420px" class="img-fluid rounded z-depth-1 d-block mx-auto" %}
 
@@ -61,3 +62,4 @@ Chrome Extension (Manifest V3, tabCapture, offscreen, side panel), JavaScript, P
 ## Links
 
 - [GitHub Repository](https://github.com/ksh0330/youtube-live-transcript-stt)
+- [Latest Release](https://github.com/ksh0330/youtube-live-transcript-stt/releases/latest)
