@@ -22,11 +22,11 @@ Audio never leaves the PC; transcription runs entirely on the local machine.
 
 ```text
 YouTube tab audio → chrome.tabCapture → offscreen document (16 kHz mono PCM16)
-→ WebSocket (127.0.0.1) → faster-whisper → rolling stabilizer → side panel / overlay
+→ WebSocket (127.0.0.1) → faster-whisper → commit → sentence assembly → side panel / overlay
 ```
 
-- **Rolling window:** each 4 s of new audio is sent with the previous 2 s as context, so the transcript updates about every 4 s
-- **Final vs. provisional:** the last ~2 s are shown as provisional and can be corrected by the next window; earlier text is committed
+- **Two streaming modes, chosen by device:** on a GPU, *sentence mode* re-transcribes all audio since the last finished sentence every 2 s and commits only words that two consecutive passes agree on (LocalAgreement); on a CPU, *rolling mode* sends 4 s of new audio with the previous 2 s as context and commits text older than 2 s
+- **Sentence-level subtitles:** committed text is grouped into sentences at punctuation, a 0.8 s pause, or 60 characters. The sentence being spoken stays on one line with its still-changing tail faded, and the overlay shows two lines like YouTube CC
 - **De-duplication:** text is merged only when it matches and its timestamps fall within about 1 s of the earlier recognition, so real repeated speech is kept
 - **Exports:** TXT, SRT, VTT, and JSON with timestamps mapped from Whisper segments to the video timeline
 
@@ -37,12 +37,23 @@ YouTube tab audio → chrome.tabCapture → offscreen document (16 kHz mono PCM1
 - **Missing CUDA libraries on Windows:** the model runs a short real inference at load time and falls back to CPU `int8` if CUDA libraries fail
 - **UI slowing down over long sessions:** the panel renders only the latest 500 lines and saves state every 8 s instead of on every segment
 - **The same sentence printed twice (v0.3.1):** when the next window re-recognized the provisional tail, Whisper shifted its timestamps by a few hundred milliseconds or dropped the last word, so de-duplication missed it. I reproduced both cases in tests, matched re-recognitions with a 1 s tolerance and containment checks, and confirmed with a real-model streaming run that the duplicate disappeared while an intentionally repeated sentence was kept. Whisper repetition loops on music or silence are now collapsed as well.
+- **Fragments at window boundaries (v0.4.0):** even without duplicates, fixed windows cut sentences into pieces such as "3." or "할 수 있습니다.", which read worse than YouTube captions. I measured that the GPU made a larger model affordable (0.29 s per window with large-v3-turbo vs. 1.85 s for small on the CPU), and used that headroom for the sentence mode above, so each sentence is recognized with its full context.
 
 {% include figure.liquid path="assets/img/projects/youtube-live-stt-sidepanel.jpg" title="Side panel" alt="Chrome side panel showing server status, live delay, search, and the transcript list" caption="The side panel with server status, live delay, search, and the full transcript. (Visual QA fixture with mock data)" max-width="420px" class="img-fluid rounded z-depth-1 d-block mx-auto" %}
 
 ## Results
 
-On a 48-second Korean TTS lecture clip (`small` model, CPU `int8`), I compared four window settings and chose 4 s + 2 s overlap:
+**Sentence mode (v0.4.0).** I streamed a 48-second Korean lecture clip with 8 reference sentences through the real server code in real-time order (RTX 5060 Ti, i7-11700):
+
+| Setting | Committed sentences | Avg. inference | Time to commit after a sentence ends (avg / max) |
+| --- | ---: | ---: | ---: |
+| small · CPU · rolling | 10 | 2,044 ms | 3.2 s / 4.8 s |
+| large-v3-turbo · GPU · rolling | 10 | 278 ms | 4.0 s / 5.9 s |
+| **large-v3-turbo · GPU · sentence** | **8** | 293 ms | **3.0 s** / 6.1 s |
+
+Rolling mode left boundary fragments; sentence mode returned the same 8 sentences as the reference, e.g. "C 언어의 인트와 롱 자료형, C89와 C99 표준도 비교하겠습니다."
+
+**Window setting (v0.3.0).** On a 48-second Korean TTS lecture clip (`small` model, CPU `int8`), I compared four window settings and chose 4 s + 2 s overlap:
 
 | New audio + overlap | Avg. inference | p95 | Duplicate rate | CER |
 | --- | ---: | ---: | ---: | ---: |
