@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle:
+subtitle: AI & Software Engineer · Applied AI, Computer Vision, Software Systems
 
 profile:
   align: right
@@ -46,16 +46,12 @@ I am interested in developing adaptive AI systems that allocate computation effi
 My goal is to build deployable AI systems that integrate perception, optimization, and decision-making into a unified pipeline.
 -->
 
-My background is in Electronics, Information & Communications Engineering, with a focus on **computer vision** and **real-time AI systems**.
+I build AI-powered software systems, from real-time perception and model inference to practical applications and production services. My background is in Electronics, Information & Communications Engineering.
 
-My experience includes **deep learning-based perception**, model inference, and system integration under real-world constraints, particularly where accuracy and latency need to be considered together.
+- **Research:** first-author journal paper on lane-specific vehicle speed estimation and accident-risk classification (**89%** on model-intersection test videos, **5 ms** inference; speed estimation validated on real roads).
+- **ETRI:** a **5G-based EO/IR drone object detection system**, about **0.6 s** from video input to detection display in the test environment.
+- **Production:** built and operate the GRIT Edu LMS/CMS used by 239 students and 21 instructors.
 
-During my undergraduate research, I developed a YOLOv8 + MLP-based accident risk classification system using lane-specific vehicle speed estimation, achieving **89% risk-classification accuracy** on model-intersection test videos with **5 ms** classifier inference, and validated the speed estimation on real roads. The work was published as a first-author journal paper.
-
-At ETRI, I worked on a **5G-based EO/IR drone object detection system**, covering image preprocessing, model inference, optimization, and system validation. In the test environment, the flow from video input to detection visualization took about **0.6 s**, and the system improved detection accuracy through EO/IR fusion.
-
-Alongside research, I build applied AI software end to end: a **retrieval-augmented generation (RAG)** service for telecom topics, a Chrome extension for **real-time local speech-to-text** on YouTube live audio, a public-data bus-boarding service on a **Neo4j** knowledge graph, and an academy LMS/CMS that I operate in production.
-
-These experiences shaped my interest in building practical AI systems that connect **data processing, models, and software** for real-world applications. I am particularly interested in AI software development for **autonomous systems, drones, and intelligent applications**.
+I am interested in AI software for **autonomous systems, drones, and intelligent applications**.
 
 ---

@@ -10,16 +10,16 @@ last_name: Kim
 contact_note:
 
 description: >
-  Personal portfolio of Seunghyun Kim, focused on computer vision, real-time AI systems, and R&D software.
+  Personal portfolio of Seunghyun Kim, an AI and software engineer working on computer vision, real-time AI systems, and applied AI software.
 
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 
-keywords: artificial intelligence, computer vision, deep learning, real-time AI, drone, R&D software
+keywords: artificial intelligence, computer vision, deep learning, real-time AI, applied AI, software engineering, drone
 
 lang: en
-icon: ⚛️
+icon: favicon.svg
 
 url: https://ksh0330.github.io
 baseurl:
@@ -643,4 +643,3 @@ jsonresume:
   - languages
   - interests
   - references
-
