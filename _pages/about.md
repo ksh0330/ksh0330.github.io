@@ -54,8 +54,8 @@ During my undergraduate research, I developed a YOLOv8 + MLP-based accident risk
 
 At ETRI, I worked on a **5G-based EO/IR drone object detection system**, covering image preprocessing, model inference, optimization, and system validation. In the test environment, the flow from video input to detection visualization took about **0.6 s**, and the system improved detection accuracy through EO/IR fusion.
 
-These experiences shaped my interest in building practical AI systems that connect **data processing, models, and software** for real-world applications.
+Alongside research, I build applied AI software end to end: a **retrieval-augmented generation (RAG)** service for telecom topics, a Chrome extension for **real-time local speech-to-text** on YouTube live audio, a public-data bus-boarding service on a **Neo4j** knowledge graph, and an academy LMS/CMS that I operate in production.
 
-I am particularly interested in AI software development for **autonomous systems, drones, and intelligent applications**.
+These experiences shaped my interest in building practical AI systems that connect **data processing, models, and software** for real-world applications. I am particularly interested in AI software development for **autonomous systems, drones, and intelligent applications**.
 
 ---
