@@ -4,6 +4,7 @@ title: GRIT Edu LMS/CMS
 description: An academy website and management system for online courses, offline classes, users, and public content.
 img: assets/img/projects/gritedu-admin-dashboard.jpg
 importance: 3
+category: Applied AI & Software
 keywords: [JavaScript, Firebase, Firestore, Cloudflare]
 permalink: /projects/grit-edu-lms/
 ---

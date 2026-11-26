@@ -4,6 +4,7 @@ title: Real-Time EO/IR Drone Object Detection
 description: Real-time drone object detection using EO/IR sensors with private 5G transmission.
 img: assets/img/projects/eo-ir-day-eo.jpg
 importance: 1
+category: Research & Real-Time AI
 keywords: [YOLOv9, EO/IR, Computer Vision, Private 5G]
 permalink: /projects/eo-ir-drone-object-detection/
 ---

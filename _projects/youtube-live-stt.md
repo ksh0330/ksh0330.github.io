@@ -2,8 +2,9 @@
 layout: page
 title: YouTube Live Transcript STT
 description: A Chrome extension that transcribes YouTube live audio in real time with a local Whisper server, even when no captions are available.
-img: assets/img/projects/youtube-live-stt-overlay.jpg
+img: assets/img/projects/youtube-live-stt-panel.png
 importance: 6
+category: AI-Assisted Playground
 keywords: [Chrome Extension, faster-whisper, WebSocket, Streaming STT]
 permalink: /projects/youtube-live-stt/
 ---

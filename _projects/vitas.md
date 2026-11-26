@@ -4,6 +4,7 @@ title: VITAS — Vision AI Traffic Accident Prevention
 description: A vision-based intersection system for vehicle detection, speed estimation, and accident-risk classification.
 img: assets/img/projects/vitas-monitoring-ui.png
 importance: 2
+category: Research & Real-Time AI
 keywords: [YOLOv8, BEV, Speed Estimation, MLP]
 permalink: /projects/vitas/
 ---

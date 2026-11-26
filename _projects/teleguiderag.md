@@ -4,6 +4,7 @@ title: TeleGuideRAG — Telecom Technology Guide
 description: A RAG service that explains networking and telecom technologies with cited sources, side-by-side comparisons, and device connection checklists.
 img: assets/img/projects/teleguiderag-compare.png
 importance: 5
+category: AI-Assisted Playground
 keywords: [RAG, LangGraph, ChromaDB, Streamlit, Networking]
 permalink: /projects/teleguiderag/
 ---

@@ -4,6 +4,7 @@ title: RideSure — Bus Boarding Likelihood
 description: A transit prototype that judges boarding likelihood from historical bus load data and compares alternative routes.
 img: assets/img/projects/ridesure-alternative.jpg
 importance: 4
+category: Applied AI & Software
 keywords: [Neo4j, Knowledge Graph, FastAPI, Public Data]
 permalink: /projects/ridesure/
 ---
