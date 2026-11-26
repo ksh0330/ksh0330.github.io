@@ -89,6 +89,11 @@ ninja.data = [{
           description: "An academy website and management system for online courses, offline classes, users, and public content.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/grit-edu-lms/";
+            },},{id: "projects-jejuoneeyes-jeju-data-analysis-agent",
+          title: 'JeJuOneEyes - Jeju Data Analysis Agent',
+          description: "A natural-language data exploration agent for Jeju public data, built as a one-day team contest MVP.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/jejuoneyes/";
             },},{id: "projects-ridesure-bus-boarding-likelihood",
           title: 'RideSure — Bus Boarding Likelihood',
           description: "A transit prototype that judges boarding likelihood from historical bus load data and compares alternative routes.",
