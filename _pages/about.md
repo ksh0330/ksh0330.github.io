@@ -50,7 +50,7 @@ I build AI-powered software systems, from real-time perception and model inferen
 
 - **Research:** first-author journal paper on lane-specific vehicle speed estimation and accident-risk classification (**89%** on model-intersection test videos, **5 ms** inference; speed estimation validated on real roads).
 - **ETRI:** a **5G-based EO/IR drone object detection system**, about **0.6 s** from video input to detection display in the test environment.
-- **Production:** built and operate the GRIT Edu LMS/CMS used by 239 students and 21 instructors.
+- **Production:** built and operate the GRIT Edu LMS/CMS used by 242 students and 22 instructors.
 
 I am interested in AI software for **autonomous systems, drones, and intelligent applications**.
 
